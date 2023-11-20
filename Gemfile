@@ -69,6 +69,5 @@ end
 # frozen_string_literal: true
 gem 'rubocop', require: false
 
-gem 'ruby-lsp', require: false
 
 gem "solargraph", "~> 0.49.0"
