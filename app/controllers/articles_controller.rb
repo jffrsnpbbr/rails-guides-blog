@@ -24,13 +24,13 @@ class ArticlesController < ApplicationController
   def edit
     @article = Article.find(params[:id])
   end
-  
+
   def update
     @article = Article.find(params[:id])
 
-    if @article.update(article_params)
-      redirect_to @article
-    end
+    return unless @article.update(article_params)
+
+    redirect_to @article
   end
 
   def destroy
@@ -41,7 +41,8 @@ class ArticlesController < ApplicationController
   end
 
   private
-    def article_params
-      params.require(:article).permit(:title, :body)
-    end
+
+  def article_params
+    params.require(:article).permit(:title, :body, :status)
+  end
 end
